@@ -1,19 +1,16 @@
 <p align="center">
-  <a href="https://www.learnwithjason.dev">
-    <img src="https://res.cloudinary.com/jlengstorf/image/upload/q_auto,f_auto,w_240/v1579281727/lwj/learnwithjason.png" alt="Learn With Jason" width="120" />
+  <a href="https://mountaintopcoding.dev">
+    <img src="https://mountaintop-coding.s3-us-west-1.amazonaws.com/Portfolio+Photos/mTC.jpg" alt="mountain" width="120" />
   </a>
 </p>
 <h1 align="center">
-  Learn With Jason Demo Template
+  Another mountainTopCoding(<span role="img" aria-label="mountain with snow-cap">&#127956;</span>); project
 </h1>
 <h3 align="center">
-  This is a base template to use as a starting point for <em>Learn With Jason</em> projects.
+  This is a starting point for <em>The Wormwood Saga</em> project.
 </h3>
 <p align="center">
-  Helpful links: 
-  <a href="https://lwj-demo-base.netlify.com"><strong>see the demo</strong></a> · 
-  <a href="https://app.netlify.com/start/deploy?repository=https://github.com/learnwithjason/demo-base&utm_source=learnwithjason&utm_medium=github&utm_campaign=devex"><strong>start a new project</strong></a> · 
-  <a href="https://jason.af/lwj/schedule"><strong>see upcoming episodes of <em>Learn With Jason</em></strong></a>
+  More to come...
 </p>
 
 &nbsp;
@@ -31,15 +28,4 @@ It’s created with [11ty](https://11ty.dev), but we can always generate the wra
 
 ## More Information
 
-- [Follow _Learn With Jason_ on Twitch][twitch] to watch future episodes live
-- [Add the _Learn With Jason_ schedule to your Google Calendar][cal]
-
-&nbsp;
-<p align="center">
-  <a href="https://app.netlify.com/start/deploy?repository=https://github.com/learnwithjason/demo-base&utm_source=learnwithjason&utm_medium=github&utm_campaign=devex">
-    <img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy this project to Netlify" />
-  </a>
-</p>
-
-[twitch]: https://jason.af/twitch
-[cal]: https://jason.af/lwj/cal
+TL;DR...
