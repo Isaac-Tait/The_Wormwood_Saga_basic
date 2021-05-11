@@ -1,6 +1,6 @@
 <style>
   .lwj-demo-header {
-    background: var(--black);
+    background: var(--light-gray);
     font-family: var(--font-family);
     position: relative;
   }
@@ -46,7 +46,7 @@
     border: 1px solid var(--dark-gray);
     border-radius: 0.25rem;
     color: var(--dark-gray);
-    content: 'Check out Learn With Jason!';
+    content: 'The Wormwood Saga';
     display: block;
     left: -0.5rem;
     opacity: 0;
@@ -127,17 +127,11 @@
 <header class="lwj-demo-header">
   <div class="logo-wrapper">
     <canvas id="canvas" width="300" height="56"></canvas>
-    <a href="https://www.learnwithjason.dev" class="logo"
-      ><img src="/images/learn-with-jason-dark.svg" alt="Learn With Jason"
+    <a href="https://mountaintopcoding.dev" class="logo"
+      ><img src="/images/bare-tree.svg" alt="bare bird covered tree"
     /></a>
     <a href="/" rel="home" class="home-link"> {{ meta.title }} </a>
   </div>
 
   <div class="top-bar"></div>
 </header>
-
-<script type="module">
-  import { startAnimation } from '/js/dots.js';
-
-  startAnimation();
-</script>
