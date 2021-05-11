@@ -85,4 +85,39 @@ script
 
   button1.addEventListener('click', login);
   button2.addEventListener('click', signup);
+
+const updateUserInfo = (user) => {
+  const container = document.querySelector('.user-info');
+
+  const b1 = button1.cloneNode(true);
+  const b2 = button2.cloneNode(true);
+
+  container.innerHTML = '';
+
+  if (user) {
+    b1.innerText = 'Log Out';
+    b1.addEventListener('click', () => {
+      netlifyIdentity.logout();
+    });
+
+    b2.innerText = 'Manage Your Subscription';
+    b2.addEventListener('click', () => {
+      // add later
+    });
+  } else {
+    b1.innerText = 'Log In';
+    b1.addEventListener('click', login);
+
+    b2.innerText = 'Sign Up';
+    b2.addEventListener('click', signup);
+  };
+
+  container.appendChild(b1);
+  container.appendChild(b2);
+};
+
+netlifyIdentity.on('init', handleUserStateChange);
+netlifyIdentity.on('login', handleUserStateChange);
+netlifyIdentity.on('logout', handleUserStateChange);
+
 </script>
