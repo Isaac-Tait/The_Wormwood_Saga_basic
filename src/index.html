@@ -1,47 +1,88 @@
-<!-- any HTML we want can go in here, including style and script tags -->
 <style>
-  .wrapper {
+  h1 {
+    text-align: center;
+  }
+
+  .user-info {
     align-items: center;
-    display: flex;
-    height: 50vh;
-    justify-content: center;
-    min-height: 300px;
-    overflow: hidden;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    list-style: none;
+    padding: 0;
   }
 
-  h2 {
-    color: #fff;
-    font-family: mallory, futura, arial black, sans-serif;
-    font-size: 22vw;
-    font-weight: 800;
-    letter-spacing: -0.1em;
-    line-height: 1.4;
-    padding: 0 0.25em;
-    text-shadow: 0.1vw 0.1vw #4f4f4f55, 0.1vw -0.1vw #4f4f4f55,
-      -0.1vw 0.1vw #4f4f4f55, -0.1vw -0.1vw #4f4f4f55;
+  .user-info button {
+    background: var(--dark-gray);
+    border: 0;
+    border-radius: 0.5rem;
+    color: var(--white);
+    display: block;
+    font-family: var(--font-family);
+    font-size: 1.5rem;
+    font-weight: 900;
+    padding: 1rem;
+    text-align: center;
+    text-decoration: none;
   }
 
-  @supports ((-webkit-background-clip: text) and (-webkit-text-stroke: 5vw)) {
-    h2 {
-      background: linear-gradient(160deg, #d459ab 0%, #ffdf37 50%, #a6fffa 90%);
-      -webkit-background-clip: text;
-      -webkit-text-stroke: 3.25vw transparent;
-    }
+  .corgi-content {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
   }
 
-  @media (min-width: 1500px) {
-    h2 {
-      font-size: 220px;
-      -webkit-text-stroke: 32.5px transparent;
-    }
+  .content h2 {
+    font-size: 1.25rem;
+    text-align: center;
+  }
+
+  .content-display {
+    margin: 0;
+  }
+script
+  .credit {
+    display: block;
+    font-size: 0.75rem;
+  }
+
+  .content img {
+    width: 100%;
   }
 </style>
 
-<h1>Life on earth seems so normal until one day a meteor from another dimension enters our universe. Not only is this meteor on a crash course with the earth but it is inhabited by an unspeakable</h1>
+<h1>Life on earth seems so normal until one day a meteor from another dimension enters our universe. Not only is this meteor on a crash course with the earth but it is inhabited by an unspeakable evil...</h1>
 
-<div class="wrapper">
-  <h2 contenteditable spellcheck="false">evil</h2>
+<div class="user-info">
+  <button id="left">Log In</button>
+  <button id="right">Sign Up</button>
 </div>
 
-<h3>Read the first three chapters free</h3>
-<h3>Signup for full access to the saga</h3>
+<div class="corgi-content">
+  <div class="content">
+    <h2>Free Content</h2>
+    <div class="free"></div>
+  </div>
+
+  <div class="content">
+    <h2>Premium Content</h2>
+    <div class="premium"></div>
+  </div>
+</div>
+
+<script
+  type="text/javascript" 
+  src="https://identity.netlify.com/v1/netlify-identity-widget.js"
+  >
+</script>
+
+<script>
+  const button1 = document.getElementById('left');
+  const button2 = document.getElementById('right');
+  
+  const login = () => netlifyIdentity.open('login');
+  const signup = () => netlifyIdentity.open('signup');
+
+  button1.addEventListener('click', login);
+  button2.addEventListener('click', signup);
+</script>
