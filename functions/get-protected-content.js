@@ -1,24 +1,40 @@
 const content = {
     free: {
-        src: 'https://images.unsplash.com/photo-1602590759575-5dfa7970bb77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2089&q=80',
-        alt: 'mount okuhotaka',
-        credit: 'Sora Sagano',
-        creditLink: 'https://unsplash.com/photos/g28g_PXBLRk?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink',
-        message: 'To view this content you need to create an account.',
+        src: 'https://mountaintop-coding.s3-us-west-1.amazonaws.com/wormwood/free.jpg',
+        alt: 'minaret lake',
+        credit: 'Isaac Tait',
+        creditLink: 'https://mountaintopcoding.dev',
+        message: 'To view this content you need to create an account. ',
         allowedRoles: ['free', 'premium'],
     },
     premium: {
-        src: 'https://images.unsplash.com/photo-1480771956109-c15c8d72172d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-        alt: 'night sky',
-        credit: 'Sora Sagano',
-        creditLink: 'https://unsplash.com/photos/g28g_PXBLRk?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink',
-        message: 'This is protected content. It is only available if you have a premium plan',
+        src: 'https://mountaintop-coding.s3-us-west-1.amazonaws.com/wormwood/premium.jpg',
+        alt: 'cecile lake',
+        credit: 'Isaac Tait',
+        creditLink: 'https://mountaintopcoding.dev',
+        message: 'This is protected content. It is only available if you have a premium plan. ',
         allowedRoles: ['premium'],
     },
 };
 
-exports.handler = async (event) => {
+exports.handler = async (event, context) => {
     const { type } = JSON.parse(event.body);
+    const { user } = context.clientContext;
+    const roles = user ? user.app_metadata.roles : false;
+    const { allowedRoles } = content[type];
+
+    if (!roles || !roles.some(role => allowedRoles.includes(role))) {
+        return {
+            statusCode: 402,
+            body: JSON.stringify({
+                src: 'https://mountaintop-coding.s3-us-west-1.amazonaws.com/wormwood/subscription+required.jpg',
+                alt: 'iceberg lake',
+                credit: 'Isaac Tait',
+                creditLink: 'https://mountaintopcoding.dev',
+                message: `This content requires a ${type} subscription. `, 
+            }),
+        };
+    }
     
     return {
         statusCode: 200,
